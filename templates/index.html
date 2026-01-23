@@ -15,11 +15,15 @@
         </style>
     </head>
     <body class="min-h-screen flex flex-col bg-sky-100 items-center text-center justify-center">
-        <i data-lucide="graduation-cap"></i>
+        
+        <div class="bg-blue-600 rounded-xl w-20 h-20 shadow-md flex items-center justify-center">
+            <i data-lucide="graduation-cap" class="flex-auto w-14 h-14 text-white"></i>
+        </div>
         
         <div class="mb-10">
 
             <h1 class = "text-black text-[42px] font-semibold mb-8"> 
+               
                 Plan smarter. Start earlier.
             </h1>
 
@@ -29,16 +33,17 @@
 
             <!-- Features -->
             <div class = "grid sm:grid-cols-3 md:grid-cols-3 items-center flex-wrap gap-6 mt-8 w-full mx-auto">
-                <div class = "bg-white rounded-3xl p-8 shadow-sm h-40">
-
+                <div class = "bg-white rounded-3xl p-8 shadow-sm h-40 items-center justify-center">
+                    <i data-lucide ="brain" class="mx-auto w-9 h-9 text-blue-600"></i>
                     <h3 class="text-xl font-semibold mb-2">AI-Powered</h3>
                     <p class = "text-gray-600">
+                        
                         Smart analysis of your assignments
                     </p>
                 </div>
 
                 <div class = "bg-white rounded-3xl p-8 shadow-sm h-40">
-
+                    <i data-lucide ="target" class="mx-auto w-9 h-9 text-indigo-600"></i>
                     <h3 class="text-xl font-semibold mb-2">Personalized</h3>
                     <p class = "text-gray-600">
                         Adapts to your study habits
@@ -46,7 +51,7 @@
                 </div>
 
                 <div class = "bg-white rounded-3xl p-8 shadow-sm h-40">
-
+                    <i data-lucide ="graduation-cap" class="mx-auto w-10 h-10 text-blue-600"></i>
                     <h3 class="text-xl font-semibold mb-2">Student-First</h3>
                     <p class = "text-gray-600">
                         Built for your success and goals
@@ -55,10 +60,13 @@
             </div>
         </div>
 
-        <button class = "bottom-6 left-10 right-10 bg-blue-600 hover:bg-blue-700 text-white text-lg font-bold py-4 px-6 rounded-2xl shadow-xl flex-wrap items-center justify-center gap-3">
-            Get Started ->
+        <button class = "fixed bottom-2 bg-blue-600 hover:bg-blue-700 text-white text-lg font-bold py-4 px-12 rounded-2xl shadow-xl flex-wrap items-center justify-center gap-3">
+            <a href="/templates/quiz.html">Get Started -></a>
         </button>
 
+        <button class="fixed bottom-2 right-2 bg-gray-700 rounded-full w-9 h-10 text-white justify-center items-center flex hover:bg-gray-800">
+            ?
+        </button>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         lucide.createIcons();
