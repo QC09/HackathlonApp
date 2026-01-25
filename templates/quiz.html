@@ -6,6 +6,7 @@
         <title> Study Planner </title>
 
         <script src="https://cdn.tailwindcss.com"></script>
+        
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
         
         <style>
@@ -15,11 +16,99 @@
         </style>
     </head>
 
-    <body class="items-center justify-center flex bg-gray-50">
-        <div class="bg-white mt-10 rounded-xl shadow-lg px-20 py-10">
-            <h1>
+    <body class="min-h-screen justify-center flex bg-gray-50 overflow-auto">
+        <div class="bg-white rounded-xl shadow-lg px-16 py-12 max-w-6xl my-10 mx-auto justify-center">
+
+            <h1 class="text-2xl font-medium text-center">
                 Let's Personalize Your Plan
             </h1>
+            <p class="text-gray-500 text-center mt-3 mb-5"> Answer a few quick questions to get started </p>
+
+            <div class="mt-5">
+                <h2 class="font-medium text-lg mb-4">
+                    When do you usually start your assignments
+                </h2>
+
+                <div class="grid grid-cols-3 sm:grid-cols-3 gap-2">
+                    <div onclick="selectOption(this)" class="option border-2 border-gray-400 rounded-xl flex items-center justify-center
+            text-center px-2 py-3 hover:border-gray-500 cursor pointer transition-all">Right away</div>
+                    <div onclick="selectOption(this)" class="option border-2 border-gray-400 rounded-xl flex items-center justify-center
+            text-center px-2 py-3 hover:border-gray-500 cursor pointer transition-all">A few days before</div>
+                    <div onclick="selectOption(this)" class="option border-2 border-gray-400 rounded-xl flex items-center justify-center
+            text-center px-2 py-3 hover:border-gray-500 cursor pointer transition-all">The night before</div>
+                </div>
+            </div>
+               
+            <div class="mt-5">
+                <h2 class="font-medium text-lg mb-4">
+                    Preferred session length?
+                </h2>
+
+                <div class="grid grid-cols-3 sm:grid-cols-3 gap-2">
+                    <div onclick="selectOption(this)" class="option border-2 border-gray-400 rounded-xl flex items-center justify-center
+            text-center px-2 py-3 hover:border-gray-500 cursor pointer transition-all">Short bursts (20-30 min)</div>
+                    <div onclick="selectOption(this)" class="option border-2 border-gray-400 rounded-xl flex items-center justify-center
+            text-center px-2 py-3 hover:border-gray-500 cursor pointer transition-all">Medium (45-60 min)</div>
+                    <div onclick="selectOption(this)" class="option border-2 border-gray-400 rounded-xl flex items-center justify-center
+            text-center px-2 py-3 hover:border-gray-500 cursor pointer transition-all">Long focus blocks (90+ min)</div>
+                </div>
+            </div>
+
+            <div class="mt-5">
+                <h2 class="font-medium text-lg mb-4">
+                    Daily study availability? 
+                </h2>
+
+                <div class="grid grid-cols-4 sm:grid-cols-4 gap-2">
+                    <div onclick="selectOption(this)" class="option border-2 border-gray-400 rounded-xl flex items-center justify-center
+            text-center px-2 py-3 hover:border-gray-500 cursor pointer transition-all">1-2 hours</div>
+                    <div onclick="selectOption(this)" class="option border-2 border-gray-400 rounded-xl flex items-center justify-center
+            text-center px-2 py-3 hover:border-gray-500 cursor pointer transition-all">2-3 hours</div>
+                    <div onclick="selectOption(this)" class="option border-2 border-gray-400 rounded-xl flex items-center justify-center
+            text-center px-2 py-3 hover:border-gray-500 cursor pointer transition-all">3-4 hours</div>
+                    <div onclick="selectOption(this)" class="option border-2 border-gray-400 rounded-xl flex items-center justify-center
+            text-center px-2 py-3 hover:border-gray-500 cursor pointer transition-all">4+ hours</div>
+                </div>
+            </div>
+
+            <div class="mt-5">
+                <h2 class="font-medium text-lg mb-4">
+                    Biggest struggle? 
+                </h2>
+
+                <div class="grid grid-cols-4 sm:grid-cols-4 gap-2">
+                    <div onclick="selectOption(this)" class="option border-2 border-gray-400 rounded-xl flex items-center justify-center
+            text-center px-2 py-3 hover:border-gray-500 cursor pointer transition-all">Procrastination</div>
+                    <div onclick="selectOption(this)" class="option border-2 border-gray-400 rounded-xl flex items-center justify-center
+            text-center px-2 py-3 hover:border-gray-500 cursor pointer transition-all">Information overloaded</div>
+                    <div onclick="selectOption(this)" class="option border-2 border-gray-400 rounded-xl flex items-center justify-center
+            text-center px-2 py-3 hover:border-gray-500 cursor pointer transition-all">Maintaing focus</div>
+                    <div onclick="selectOption(this)" class="option border-2 border-gray-400 rounded-xl flex items-center justify-center
+            text-center px-2 py-3 hover:border-gray-500 cursor pointer transition-all">Time management</div>
+                </div>
+            </div>
+            <div class="flex justify-center">
+                <button class = "mt-10 bg-blue-600 hover:bg-blue-700 text-white text-lg font-bold py-4 px-40 rounded-2xl shadow-xl">
+                    <a href="/templates/task_planner.html">Start planning -></a>
+                </button>
+            </div>
+
+
         </div>
+        <script>
+            function selectOption(el) {
+                document.querySelectorAll('.option').forEach(o => {
+                    // Remove selected styles
+                    o.classList.remove('bg-blue-200','border-blue-600');
+                    // Re-enable hover
+                    o.classList.add('hover:border-gray-500');
+                });
+                // Add selected styles to clicked option
+                el.classList.add('bg-blue-200','border-blue-600');
+                // Disable hover for selected option
+                el.classList.remove('hover:border-gray-500');
+            }
+        </script>
+
     </body>
 </html>

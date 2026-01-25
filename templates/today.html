@@ -86,17 +86,69 @@
 
             <!--focuses-->
             <div class="col-span-2 flex flex-col gap-4">
+                <div class="flex flex-col justify-between">
+                    <h1 class="text-2xl font-medium">Today's Focus</h1>
+                    <button class="text-blue-600 hover:bg-blue-100">
+                        + Add Task
+                    </button>
+                </div>
+
                 <div class="bg-white rounded-xl shadow p-4 flex flex-col justify-between gap-2">
                     <p class="font-medium">Essay outline</p>
                     
-                    <div class="text-gray-400 text-xs flex items-center gap-2 mt-1">
+                    <div class="text-gray-500 text-xs flex items-center gap-2 mt-1">
                         <i data-lucide="clock" class="w-4 h-4"></i>
                         <p>1h</p>
                         <i data-lucide="zap" class="w-4 h-4"></i>
-
-                    </div>
+                    </div>  
                 </div>
 
+                <div class="bg-white rounded-xl shadow p-4 flex flex-col justify-between gap-2">
+                    <p class="font-medium">Math pracitce</p>
+                    
+                    <div class="text-gray-500 text-xs flex items-center gap-2 mt-1">
+                        <i data-lucide="clock" class="w-4 h-4"></i>
+                        <p>45m</p>
+                        <i data-lucide="zap" class="w-4 h-4"></i>
+                    </div>
+                    
+                </div>
+
+                <div class="bg-white rounded-xl shadow p-4 flex flex-col justify-between gap-2">
+                    <p class="font-medium">Read chapter 5</p>
+                    
+                    <div class="text-gray-500 text-xs flex items-center gap-2 mt-1">
+                        <i data-lucide="clock" class="w-4 h-4"></i>
+                        <p>30m</p>
+                        <i data-lucide="zap" class="w-4 h-4"></i>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!--quick stats-->
+            <div class="bg-white rounded-xl shadow p-6 flex flex-col justify-between gap-2">
+                <h1 class="text-lg font-medium">Quick Stats</h1>
+                <div class="w-full flex justify-between text-sm">
+                    <p class="text-gray-500 ">Tasks Today</p>
+                    <p>3</p>
+                </div>
+
+                <div class="w-full flex justify-between text-sm">
+                    <p class="text-gray-500 ">Completed</p>
+                    <p class="text-green-500">0</p>
+                </div>
+
+                <div class="w-full flex justify-between text-sm">
+                    <p class="text-gray-500 ">Remaining</p>
+                    <p class="text-red-500">3</p>
+                </div>
+
+            </div>
+            <!--add new task-->
+            <div class="col-span-2 flex flex-col border-dashed border-2 border-gray-400 p-4 items-center justify-center text-gray-600 rounded-xl hover:text-blue-600 hover:bg-blue-100 hover:border-blue-400">
+                <h1>+</h1>
+                <h1>Analyze new assignment</h1>
             </div>
         </div>
 
