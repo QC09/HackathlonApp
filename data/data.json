@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Economics Assignment Review",
+    "duedate": "2024-06-30",
+    "tasks": [
+      {
+        "name": "Research Core Economic Theory",
+        "description": "Conduct thorough research on the specified economic theory, gathering relevant background information and contemporary applications."
+      },
+      {
+        "name": "Data Collection and Analysis",
+        "description": "Identify and collect pertinent economic data sets, then perform preliminary analysis to identify trends or correlations relevant to the assignment."
+      },
+      {
+        "name": "Draft Report/Essay",
+        "description": "Write a comprehensive draft of the assignment, incorporating research findings and data analysis, ensuring a clear thesis and supporting arguments."
+      },
+      {
+        "name": "Review and Refine Content",
+        "description": "Critically review the draft for logical flow, accuracy, coherence, and adherence to assignment guidelines, making necessary revisions."
+      },
+      {
+        "name": "Final Proofreading and Submission",
+        "description": "Perform a final check for grammar, spelling, punctuation, and formatting errors before submitting the completed economics assignment."
+      }
+    ],
+    "effort": 7
+  }
+]

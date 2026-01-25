@@ -1,0 +1,18 @@
+
+
+- service: return oput -> Object (class)
+- html -> javascript -> interact elements ( video )
+
+
+- Fastpi render template response
+
+
+Canh: 
+- service -> fastapi API
+code: main.py @app.get("/analyze")
+
+Tammy: 
+- html fastpi Templates
+
+Javascript interaction
+- Video getElementById...
