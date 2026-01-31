@@ -49,6 +49,173 @@
         <p class="text-gray-400 text-xs mt-6 fixed bottom-3">v1.0.0</p>
     </aside>
 
+    <main class="flex-1 p-10 overflow-auto">
+        <div class="mb-8">
+            <h1 class="text-4xl font-semibold mb-1">Profile & Settings</h1>
+            <p class="text-sm text-gray-600"> Manage your account and preferences</p>
+        </div>
+
+        <div class="grid grid-cols-3 lg:grid-cols-3 sm:grid-cols-1 gap-6">
+
+            <!--Profile-->
+            <div class="bg-white shadow rounded-xl flex flex-col justify-center items-center gap-2 p-6">
+                <div class="relative w-32 h-32 flex items-center justify-center">
+                    <i data-lucide ="user" class="w-12 h-12 text-blue-600 relative z-10"></i> 
+                    <svg class="w-full h-full absolute inset-0" viewBox="0 0 36 36">
+                        <circle fill="#BBDEFB" cx="18" cy="18" r="14"/>
+                        
+                    </svg>
+                    
+                </div>
+                
+                
+                <h1 class="font-semibold text-2xl">Student user</h1>
+                <p class="text-sm text-gray-500">student@school.edu</p>
+                
+                <button class="border-gray-200 border-2 rounded-xl w-full py-3 items-center flex justify-center font-medium whitespace-nowrap">
+                    Edit Profile
+                </button>
+            </div>
+
+            <!--Study Style-->
+            <div class="bg-white shadow rounded-xl p-6 col-span-2 flex flex-col gap-4">
+                <h2 class="font-semibold text-lg">Your Study Style</h2>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-blue-50 rounded-xl p-4">
+                        <p class="text-sm text-gray-500 mb-1">Session Length</p>
+                        <p class>Short bursts (20-30 min)</p>
+                    </div>
+                   
+                    <div class="bg-green-50 rounded-xl p-4">
+                        <p class="text-sm text-gray-500 mb-1">Time You Start</p>
+                        <p class>A few days before</p>
+                    </div>
+                    
+                    <div class="bg-purple-50 rounded-xl p-4">
+                        <p class="text-sm text-gray-500 mb-1">Daily Availability</p>
+                        <p class>3-4 hours</p>
+                    </div>
+                    
+                    <div class="bg-yellow-50 rounded-xl p-4">
+                        <p class="text-sm text-gray-500 mb-1">Main Challenge</p>
+                        <p class>Procrastination</p>
+                    </div>
+                    
+                    <button class="bg-blue-600 text-white rounded-xl items-center col-span-2 p-2 hover:bg-blue-700">
+                        Update preferences
+                    </button>
+                </div>
+            </div>
+
+            <!--Quick Actions-->
+            <div class="bg-white rounded-xl shadow p-6 flex flex-col gap-4">
+                <h2 class="font-semibold text-lg">Quick Actions</h2>
+                <button class="flex items-center gap-2 hover:bg-gray-100 px-3 py-2 rounded-lg">
+                    <i data-lucide="settings" class="text-gray-500"></i>
+                    <p class="font-semibold">Settings</p>
+                </button>
+
+                <button class="flex items-center gap-2 text-red-500 hover:bg-red-100 px-3 py-2 rounded-lg">
+                    <i data-lucide="log-out"></i>
+                    <p class="font-semibold">Log Out</p>
+                </button>
+            </div>
+
+            <!--Connect Sources-->
+            <div class="bg-white rounded-xl shadow p-6 flex flex-col gap-4 col-span-2">
+                <h2 class="font-semibold tetxt-lg">Connected Sources</h2>
+
+                <button class="border-2 rounded-xl border-gray-200 flex items-center gap-4 p-4">
+                    <div class="bg-blue-100 w-10 h-10 rounded-xl flex items-center justify-center p-2">
+                        <i data-lucide="calendar" class="text-blue-500 w-5 h-5"></i>
+                        
+                    </div>
+                    
+                    <div class="flex flex-col justify-center">
+                        <p class="font-medium">Google Calendar</p>
+                        <p class="text-sm text-gray-500">Sync your schedule</p>
+                    </div>
+
+                    <div class="ml-auto bg-green-200 text-green-600 rounded-full inline-flex justify-center items-center py-1 px-3">
+                        Connected
+                    </div>
+                </button>
+
+                <button class="border-2 rounded-xl border-gray-200 flex items-center gap-4 p-4">
+                    <div class="bg-orange-100 w-10 h-10 rounded-xl flex items-center justify-center p-2">
+                        <i data-lucide="link" class="text-orange-500 w-5 h-5"></i>
+                        
+                    </div>
+                    
+                    <div class="flex flex-col justify-center items-start">
+                        <p class="font-medium">Canvas LLMS</p>
+                        <p class="text-sm text-gray-500">Import Assignmets</p>
+                    </div>
+
+                    <div class="ml-auto bg-green-200 text-green-600 rounded-full inline-flex justify-center items-center py-1 px-3">
+                        Activated
+                    </div>
+                </button>
+
+                <button class="border-2 rounded-lg border-dashed border-gray-200 hover:bg-gray-100 flex justify-center items-center p-6 font-medium text-lg">
+                   + Connect New Source
+                </button>
+               
+            </div>
+
+            <!--Notifications-->
+            <div class="bg-white rounded-xl shadow p-6 flex flex-col gap-4 col-span-2 col-start-2">
+                <h2 class="font-semibold tetxt-lg">Notifications</h2>
+
+                <button class="border-2 rounded-xl border-gray-200 flex items-center gap-4 p-4">
+                    
+                    <i data-lucide="bell" class="text-gray-400 w-5 h-5"></i>
+                
+                    <div class="flex flex-col justify-center items-start">
+                        <p class="font-medium">Gentle Reminders</p>
+                        <p class="text-sm text-gray-500">Get notified before deadlines</p>
+                    </div>
+
+                </button>
+
+                <button class="border-2 rounded-xl border-gray-200 flex items-center gap-4 p-4">
+                    
+                    <i data-lucide="bell" class="text-gray-400 w-5 h-5"></i>
+                
+                    <div class="flex flex-col justify-center items-start">
+                        <p class="font-medium">Weekly reminders</p>
+                        <p class="text-sm text-gray-500">Receive weekly study pattern analysis</p>
+                    </div>
+                </button>
+               
+            </div>
+
+            <!--About-->
+
+            <div class="bg-white shadow rounded-xl flex flex-col col-span-2 col-start-2 gap-4 p-6">
+                <h2 class="text-2xl font-semibold">About</h2>
+
+                <button class="rounded-xl hover:bg-gray-100 text-gray-800 flex items-start p-4 font-medium">
+                    Help & Support
+                </button>
+
+                <button class="rounded-xl hover:bg-gray-100 text-gray-800 flex items-start p-4 font-medium">
+                    Privacy Policy
+                </button>
+
+                <button class="rounded-xl hover:bg-gray-100 text-gray-800 flex items-start p-4 font-medium">
+                    Terms of Service
+                </button>
+
+                <div class="text-gray-400 flex justify-center mb-2">
+                    Version 1.0.0
+                </div>
+            </div>
+            
+        </div>
+
+    </main>
    
 
     <script src="https://unpkg.com/lucide@latest"></script>

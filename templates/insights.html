@@ -49,6 +49,62 @@
         <p class="text-gray-400 text-xs mt-6 fixed bottom-3">v1.0.0</p>
     </aside>
 
+    <main class="flex-1 p-10 overflow-auto">
+        <div class="mb-8">
+            <h2 class="text-4xl font-semibold mb-1">Your Study Insights</h2>
+            <p class="text-gray-500">AI powered analysis of your learning patterns</p>
+        </div>
+
+       
+        <div class="grid grid-cols-2 gap-6">
+            
+            <!--week's insights-->
+            <div class="bg-white border-1 rounded-xl shadow px-8 pt-8 pb-6 flex flex-col gap-6">
+                <h1 class="font-semibold text-xl">This Week's Insights</h1>
+
+                <div class="grid grid-cols-[auto_1fr] bg-orange-50 rounded-xl p-4 gap-6">
+                    <i data-lucide="trending-down" class="text-orange-500"></i>
+                    <div>
+                        <p class="font-medium">Time Estimation</p>
+                        <p class="text-sm text-gray-800">You underestimated writing tasks by <b>~25%</b>. Try adding buffer time for editing.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-[auto_1fr] bg-blue-50 rounded-xl p-4 gap-6">
+                    <i data-lucide="clock" class="text-blue-500"></i>
+                    <div>
+                        <p class="font-medium">Peak Performance</p>
+                        <p class="text-sm text-gray-800">You focus best between <b>6-9pm</b>. Schedule challenging tasks during this window.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-[auto_1fr] bg-purple-50 rounded-xl p-4 gap-6">
+                    <i data-lucide="trending-up" class="text-purple-500"></i>
+                    <div>
+                        <p class="font-medium">Task Patterns</p>
+                        <p class="text-sm text-gray-800">You tend to delay high-effort tasks. Breaking them into smaller chunks might help.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!--AI Rec-->
+            <div class="bg-blue-100 rounded-xl border-2 border-blue-300 grid grid-cols-[auto_1fr] p-6">
+                
+
+                <div>
+                    <h1 class="font-semibold text-2xl text-blue-800">AI Recommendation</h1>
+                    <p>Based on your study patterns, we recommend starting writing tasks earlier in the week. You'll have more energy and avoid the last-minute rush. Consider scheduling 30-minute sessions for better focus.</p>
+                </div>
+
+                <button class="col-span-2 bg-blue-600 rounded-xl hover:bg-blue-700 text-white font-medium text-lg flex-wrap items-center justify-center h-14 gap-3">
+                    Apply to this week
+                </button>
+
+            </div>
+
+        </div>
+        
+    </main>
    
 
     <script src="https://unpkg.com/lucide@latest"></script>
