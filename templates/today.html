@@ -21,25 +21,28 @@
         </div>
 
         <nav class="flex flex-col gap-4 mb-10">
-            <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100">
+            <a href="/today" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100">
                 <i data-lucide="house"></i>
                 <p>Today</p>
             </a>
-            <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100">
+
+            <a href="/plan" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100">
                 <i data-lucide="calendar"></i>
                 <p>Plan</p>
             </a>
-            <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100">
+
+            <a href="/insights" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100">
                 <i data-lucide="trending-up"></i>
                 <p>Insights</p>
             </a>
-            <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100">
-                <i data-lucide="user"></i>
+
+            <a href="/profile" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100">
+                <i data-lucide="user-round"></i>
                 <p>Profile</p>
             </a>
         </nav>
 
-        <button class="bg-blue-600 text-white rounded-lg py-3 hover:bg-blue-700 transition">
+        <button command="show-modal" commandfor="dialog" class="bg-blue-600 text-white rounded-lg py-3 hover:bg-blue-700 transition">
             + Add Task
         </button>
         
@@ -55,136 +58,118 @@
 
         <div class="grid grid-cols-2 gap-6">
 
-            <!--Manageable day-->
-            <div class="bg-white rounded-xl shadow p-6 flex flex-col items-center">
-                <p class="text-gray-800 mb-4 text-center text-xl">You have a <b>manageable</b> day</p>
-                <div class="w-40 h-40 mb-4 relative">
-                    <svg class="w-full h-full" viewBox="0 0 36 36">
-                        <circle class="text-gray-200" stroke-width="2" stroke="currentColor" fill="none" cx="18" cy="18" r="16"/>
-                        <circle class="text-blue-500" stroke-width="2" stroke-dasharray="0,100" stroke-linecap="round" stroke="currentColor" fill="none" cx="18" cy="18" r="16"/>
-                    </svg>
-                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-3xl font-normal">
-                        0h
-                        <p class="text-gray-600 text-sm font-light">of 3h 15m</p>
-                    </div>
+            <!-- Study Strategy -->
+            <div class="col-span-2 bg-white rounded-xl shadow p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h1 class="text-xl font-semibold">Study Strategy</h1>
+                    <button id="strategyBtn" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 text-sm">
+                        ✨ Generate Strategy
+                    </button>
                 </div>
-                <div class="w-full flex justify-between text-gray-500 text-sm">
-                    <p>Planned</p>
-                    <p>3h 15m</p>
-                </div>
-                <div class="w-full flex justify-between text-gray-500 text-sm mt-1">
-                    <p>Completed</p>
-                    <p class="text-blue-600">0h</p>
-                </div>
-            </div>
-
-            <!--Quick Stats-->
-            <div class="bg-white rounded-xl shadow p-6 flex flex-col gap-4">
-                <h1 class="text-xl font-semibold mb-2">Quick Stats</h1>
-                <div class="w-full flex justify-between ">
-                    <p class="text-gray-500">Tasks Today</p>
-                    <p>3</p>
-                </div>
-                <div class="w-full flex justify-between">
-                    <p class="text-gray-500">Completed</p>
-                    <p class="text-green-500">0</p>
-                </div>
-                <div class="w-full flex justify-between">
-                    <p class="text-gray-500">Remaining</p>
-                    <p class="text-red-500">3</p>
+                <div id="strategyResult" class="prose prose-sm text-gray-600 max-w-none">
+                    <p class="text-gray-400 text-center py-4">Click "Generate Strategy" to get a personalized study plan based on your current deadlines.</p>
                 </div>
             </div>
         
 
-            <!--Tasks by date and difficulty-->
-            <div class="col-span-2 flex flex-col gap-4">
-                <!--Today-->
-                 <h1 class="text-2xl font-medium">Today's Focus</h1>
-                
-                <div class="bg-white rounded-xl p-4 gap-4 flex items-start">
-                    <input 
-                        type="checkbox"
-                        class="mt-1 h-4 w-4 rounded border-gray-300 text-orange-500 focus:ring-orange-400"
-                    />
-
-                    <div class="flex flex-col gap-2">
-                        
-                        <p class="font-medium">Essay Outline</p>
-                        <p class="text-gray-500 text-sm">Draft main points and thesis</p>
-                        <div class="flex items-center gap-2 text-gray-500 text-xs">
-                            <i data-lucide="clock" class="w-4 h-4"></i>
-                            <p>1h</p>
-                            
-                            <!--Difficulty meter-->
-                            <div class="flex">
-                                <i data-lucide="rectangle-vertical" class="w-3 h-7 fill-orange-400"></i>
-                                <i data-lucide="rectangle-vertical" class="w-3 h-7 fill-orange-400"></i>
-                                <i data-lucide="rectangle-vertical" class="w-3 h-7 fill-orange-400"></i>
-                                <i data-lucide="rectangle-vertical" class="w-3 h-7"></i>
-                            </div>
-                        </div>
-                        <p class="text-gray-400 text-xs mt-1">Next: Begin research for essay</p>
-                    </div>
+            <!-- Upcoming Deadlines -->
+            <div class="col-span-2">
+                <div class="flex items-center justify-between mb-3">
+                    <h1 class="text-2xl font-medium">Upcoming Deadlines</h1>
+                    <a href="/plan" class="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition text-sm">
+                        <i data-lucide="calendar" class="w-4 h-4"></i>
+                        Go to Plan
+                    </a>
                 </div>
-                <div class="bg-white rounded-xl shadow p-4 flex items-start">
-                    <input 
-                            type="checkbox"
-                            class="mt-1 h-4 w-4 rounded border-gray-300 text-orange-500 focus:ring-orange-400"
-                    /> 
-                    <div class="flex flex-col gap-2">
-                        <p class="font-medium">Math Practice</p>
-                        <p class="text-gray-500 text-sm">Solve problems 1-20 from Chapter 4</p>
-                        <div class="flex items-center gap-2 text-gray-500 text-xs">
-                            <i data-lucide="clock" class="w-4 h-4"></i>
-                            <p>45m</p>
-
-                            <!--Difficulty meter-->
-                            <div class="flex">
-                                <i data-lucide="rectangle-vertical" class="w-3 h-7 fill-orange-400"></i>
-                                <i data-lucide="rectangle-vertical" class="w-3 h-7 fill-orange-400"></i>
-                                <i data-lucide="rectangle-vertical" class="w-3 h-7"></i>
-                                <i data-lucide="rectangle-vertical" class="w-3 h-7"></i>
+                <div class="bg-white rounded-xl shadow p-4 space-y-3">
+                    {% if assignments %}
+                        {% for assignment in assignments %}
+                        <div class="flex justify-between items-center py-2 border-b last:border-b-0">
+                            <div>
+                                <p class="font-medium">{{ assignment.name }}</p>
+                                <p class="text-sm text-gray-400">{{ assignment.duedate if assignment.duedate else "No deadline set" }}</p>
                             </div>
+                            <span class="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">Effort: {{ assignment.effort }}/10</span>
                         </div>
-                        <p class="text-gray-400 text-xs mt-1">Next: Review mistakes and redo tricky problems</p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl shadow p-4 flex items-start">
-                    <input 
-                                type="checkbox"
-                                class="mt-1 h-4 w-4 rounded border-gray-300 text-orange-500 focus:ring-orange-400"
-                    /> 
-
-                    <div class="flex flex-col gap-2">
-                        <p class="font-medium">Read Chapter 5</p>
-                        <p class="text-gray-500 text-sm">Focus on key concepts</p>
-                        <div class="flex items-center gap-2 text-gray-500 text-xs">
-                            <i data-lucide="clock" class="w-4 h-4"></i>
-                            <p>30m</p>
-                            <!--Difficulty meter-->
-                            <div class="flex">
-                                <i data-lucide="rectangle-vertical" class="w-3 h-7 fill-orange-400"></i>
-                                <i data-lucide="rectangle-vertical" class="w-3 h-7"></i>
-                                <i data-lucide="rectangle-vertical" class="w-3 h-7"></i>
-                                <i data-lucide="rectangle-vertical" class="w-3 h-7"></i>
-                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="text-center py-8 text-gray-400">
+                            <i data-lucide="inbox" class="w-10 h-10 mx-auto mb-2"></i>
+                            <p>No assignments yet. Go to Plan to add your first assignment.</p>
                         </div>
-                        <p class="text-gray-400 text-xs mt-1">Next: Summarize chapter notes</p>
-                    </div>
+                    {% endif %}
                 </div>
-
-                <!--Upcoming Deadlines-->
-                <h1>This Week</h1>
             </div>
 
+            <!-- Task List with Dropdown -->
+            {% if assignments %}
+            <div class="col-span-2 flex flex-col gap-4">
+                <div class="flex items-center gap-4">
+                    <h1 class="text-2xl font-medium">Tasks</h1>
+                    <select id="assignmentSelect" onchange="onChangeAssignment()" class="border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500">
+                        {% for assignment in assignments %}
+                        <option value="{{ assignment.id }}">{{ assignment.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                {% for assignment in assignments %}
+                <div class="assignment_tasks {% if not loop.first %}hidden{% endif %}" id="{{ assignment.id }}">
+                    <div class="bg-white rounded-xl shadow p-4 space-y-3">
+                        {% for task in assignment.tasks %}
+                        <label class="flex items-start gap-3 cursor-pointer">
+                            <input type="checkbox" class="mt-1 w-4 h-4 rounded border-gray-300 text-blue-500 focus:ring-blue-400">
+                            <div>
+                                <p class="font-medium">{{ task.name }}</p>
+                                <p class="text-gray-500 text-sm">{{ task.description }}</p>
+                            </div>
+                        </label>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
 
         </div>
     </main>
 
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@latest/lib/marked.min.js"></script>
     <script>
         lucide.createIcons();
+
+        function onChangeAssignment() {
+            const selected = document.getElementById("assignmentSelect").value;
+            const sections = document.getElementsByClassName("assignment_tasks");
+            for (const section of sections) {
+                section.classList.toggle("hidden", section.id != selected);
+            }
+        }
+
+        const strategyBtn = document.getElementById("strategyBtn");
+        const strategyResult = document.getElementById("strategyResult");
+
+        strategyBtn.addEventListener("click", async () => {
+            strategyBtn.disabled = true;
+            strategyBtn.textContent = "Generating...";
+            strategyResult.innerHTML = '<p class="text-gray-400 text-center py-4">Analyzing your deadlines...</p>';
+
+            try {
+                const response = await fetch("/generate-strategy");
+                if (response.ok) {
+                    const data = await response.json();
+                    strategyResult.innerHTML = marked.parse(data.strategy);
+                } else {
+                    throw new Error("Failed");
+                }
+            } catch (error) {
+                strategyResult.innerHTML = '<p class="text-red-500 text-center py-4">Error generating strategy. Please try again.</p>';
+            } finally {
+                strategyBtn.disabled = false;
+                strategyBtn.textContent = "✨ Generate Strategy";
+            }
+        });
     </script>
 </body>
 </html>
