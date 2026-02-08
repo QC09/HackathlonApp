@@ -1,29 +1,30 @@
 [
   {
-    "name": "Economics Assignment Review",
-    "duedate": "2024-06-30",
+    "name": "Economic Project",
+    "duedate": "2026-02-28",
     "tasks": [
       {
-        "name": "Research Core Economic Theory",
-        "description": "Conduct thorough research on the specified economic theory, gathering relevant background information and contemporary applications."
+        "name": "Research Microeconomics & Applications",
+        "description": "Thoroughly research the definition of microeconomics, its core principles, and various real-world applications to ensure comprehensive understanding for the video content."
       },
       {
-        "name": "Data Collection and Analysis",
-        "description": "Identify and collect pertinent economic data sets, then perform preliminary analysis to identify trends or correlations relevant to the assignment."
+        "name": "Develop Video Script",
+        "description": "Create a concise and engaging script for the 3-minute video, specifically focusing on introducing general economic concepts, defining microeconomics, and highlighting its applications clearly."
       },
       {
-        "name": "Draft Report/Essay",
-        "description": "Write a comprehensive draft of the assignment, incorporating research findings and data analysis, ensuring a clear thesis and supporting arguments."
+        "name": "Prepare Visual Aids/Demo Content",
+        "description": "Design or gather any necessary visuals, simple diagrams, or relevant examples that will be incorporated into the video demo to illustrate microeconomic concepts effectively."
       },
       {
-        "name": "Review and Refine Content",
-        "description": "Critically review the draft for logical flow, accuracy, coherence, and adherence to assignment guidelines, making necessary revisions."
+        "name": "Record Video Demonstration",
+        "description": "Record the 3-minute video, ensuring clear audio and visuals, practicing the delivery to meet the time constraint while maintaining clarity and enthusiasm."
       },
       {
-        "name": "Final Proofreading and Submission",
-        "description": "Perform a final check for grammar, spelling, punctuation, and formatting errors before submitting the completed economics assignment."
+        "name": "Edit and Finalize Video",
+        "description": "Edit the recorded footage, add any introductory/outro elements, graphics, and ensure the video flows smoothly, meets the time limit, and effectively conveys the required information."
       }
     ],
-    "effort": 7
+    "effort": 7,
+    "id": 0
   }
 ]

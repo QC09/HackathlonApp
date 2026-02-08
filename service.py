@@ -19,10 +19,12 @@ class Task(BaseModel):
     description: str
 
 class Summary(BaseModel):
-    name: str = Field(description="The name of the recipe.")
-    duedate: Optional[str] = Field(description="Optional time in minutes to prepare the recipe.")
+    name: str = Field(description="The name of the assignment.")
+    duedate: Optional[str] = Field(default=None, description="The deadline as a date string (e.g. 2026-03-15), or null if not specified.")
     tasks: List[Task]
-    effort: int
+    effort: int = Field(description="Estimated effort from 1 (easy) to 10 (hard).")
+
+STRATEGY_INSTRUCTION = """You are a study strategy advisor. Based on the student's current assignments and deadlines, create a concise and actionable study strategy. Format your response as 3-5 clear bullet points. Be specific and practical."""
 
 class GoogleAIService:
     def generate_response(self, input):
@@ -35,6 +37,16 @@ class GoogleAIService:
             }
         )
         return response
+
+    def generate_strategy(self, assignments_summary):
+        response = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=assignments_summary,
+            config={
+                "system_instruction": STRATEGY_INSTRUCTION,
+            }
+        )
+        return response.text
 
 googleAIClient = GoogleAIService()
 # response = googleAIClient.generate_response("My assigment is Economics project, deadline is 2 week from now, I need to create a sample project on micro-economics.")

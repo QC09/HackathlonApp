@@ -22,22 +22,25 @@
     </div>
 
     <nav class="flex flex-col gap-4 mb-10">
-        <a class="flex items-center gap-2 px-3 py-2 rounded-lg bg-gray-100">
-            <i data-lucide="house"></i>
-            <p>Dashboard</p>
-        </a>
-        <a class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100">
-            <i data-lucide="calendar"></i>
-            <p>Plan</p>
-        </a>
-        <a class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100">
-            <i data-lucide="trending-up"></i>
-            <p>Insights</p>
-        </a>
-        <a class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100">
-            <i data-lucide="user-round"></i>
-            <p>Profile</p>
-        </a>
+        <a href="/today" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100">
+                <i data-lucide="house"></i>
+                <p>Today</p>
+            </a>
+
+            <a href="/plan" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100">
+                <i data-lucide="calendar"></i>
+                <p>Plan</p>
+            </a>
+
+            <a href="/insights" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100">
+                <i data-lucide="trending-up"></i>
+                <p>Insights</p>
+            </a>
+
+            <a href="/profile" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100">
+                <i data-lucide="user-round"></i>
+                <p>Profile</p>
+            </a>
     </nav>
 
     <button id="openModal" class="bg-blue-600 text-white rounded-lg py-3 hover:bg-blue-700 transition">
@@ -50,68 +53,97 @@
 <!-- MAIN CONTENT -->
 <main class="flex-1 h-full overflow-y-auto p-8 space-y-10">
 
-    <!-- DEADLINES -->
+    <!-- ADD NEW ASSIGNMENT -->
     <section>
-        <h2 class="text-xl font-bold mb-4">Upcoming Deadlines</h2>
-        <div class="bg-white rounded-xl shadow p-4 space-y-4">
-            <div class="flex justify-between">
-                <div>
-                    <p class="font-medium">Math Project</p>
-                    <p class="text-sm text-gray-400">Due Feb 10</p>
-                </div>
-                <span class="text-red-500 font-semibold">3 days left</span>
-            </div>
-
-            <div class="flex justify-between">
-                <div>
-                    <p class="font-medium">History Essay</p>
-                    <p class="text-sm text-gray-400">Due Feb 15</p>
-                </div>
-                <span class="text-yellow-500 font-semibold">8 days left</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ANALYZE ASSIGNMENT -->
-    <section>
-        <h2 class="text-xl font-bold mb-4">Analyze New Assignment</h2>
+        <h2 class="text-xl font-bold mb-4">Add New Assignment</h2>
         <div class="bg-white rounded-xl shadow p-6">
+            <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label class="block text-sm text-gray-500 mb-1">Project Name</label>
+                    <input
+                        type="text"
+                        id="projectName"
+                        class="w-full border rounded-lg p-3 focus:ring-2 focus:ring-blue-500"
+                        placeholder="e.g. Economics Project"
+                    >
+                </div>
+                <div>
+                    <label class="block text-sm text-gray-500 mb-1">URL (optional)</label>
+                    <input
+                        type="url"
+                        id="projectUrl"
+                        class="w-full border rounded-lg p-3 focus:ring-2 focus:ring-blue-500"
+                        placeholder="e.g. https://..."
+                    >
+                </div>
+            </div>
+            <label class="block text-sm text-gray-500 mb-1">Description</label>
             <textarea
                 id="assignmentDescription"
-                rows="4"
+                rows="3"
                 class="w-full border rounded-lg p-3 mb-4 focus:ring-2 focus:ring-blue-500"
-                placeholder="Paste assignment description here..."
+                placeholder="Describe the assignment, requirements, deadline..."
             ></textarea>
 
             <button id="analyzeBtn" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-                🤖 Analyze Assignment
+                🤖 Generate Tasks
             </button>
             <div id="analysisResult" class="mt-4 hidden"></div>
         </div>
     </section>
 
-    <!-- TASK LIST -->
+    <!-- DEADLINES -->
     <section>
-        <h2 class="text-xl font-bold mb-4">Tasks for: Math Project</h2>
+        <h2 class="text-xl font-bold mb-4">Upcoming Deadlines</h2>
         <div class="bg-white rounded-xl shadow p-4 space-y-3">
-            <label class="flex items-center gap-3">
-                <input type="checkbox" class="w-4 h-4">
-                <span>Research topic</span>
-            </label>
-            <label class="flex items-center gap-3">
-                <input type="checkbox" class="w-4 h-4">
-                <span>Create outline</span>
-            </label>
-            <label class="flex items-center gap-3">
-                <input type="checkbox" class="w-4 h-4">
-                <span>Write first draft</span>
-            </label>
-            <label class="flex items-center gap-3">
-                <input type="checkbox" class="w-4 h-4">
-                <span>Final submission</span>
-            </label>
+            {% if assignments %}
+                {% for assignment in assignments %}
+                <div class="flex justify-between items-center py-2 border-b last:border-b-0">
+                    <div>
+                        <p class="font-medium">{{ assignment.name }}</p>
+                        <p class="text-sm text-gray-400">{{ assignment.duedate if assignment.duedate else "No deadline set" }}</p>
+                    </div>
+                    <span class="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">Effort: {{ assignment.effort }}/10</span>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="text-center py-8 text-gray-400">
+                    <i data-lucide="inbox" class="w-10 h-10 mx-auto mb-2"></i>
+                    <p>No deadlines yet. Add your first assignment above.</p>
+                </div>
+            {% endif %}
         </div>
     </section>
+
+    <!-- TASK LIST (only shown when assignments exist) -->
+    {% if assignments %}
+    <section>
+        <div class="flex items-center gap-4 mb-4">
+            <h2 class="text-xl font-bold">Tasks</h2>
+            <select id="assignments" onchange="onChangeAssignment()" class="border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500">
+                {% for assignment in assignments %}
+                    <option value="{{ assignment.id }}">{{ assignment.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        {% for assignment in assignments %}
+            <div class="assignment_tasks {% if not loop.first %}hidden{% endif %}" id="{{ assignment.id }}">
+                <div class="bg-white rounded-xl shadow p-4 space-y-3">
+                    {% for task in assignment.tasks %}
+                    <label class="flex items-start gap-3 cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-4 h-4 rounded border-gray-300 text-blue-500 focus:ring-blue-400">
+                        <div>
+                            <p class="font-medium">{{ task.name }}</p>
+                            <p class="text-gray-500 text-sm">{{ task.description }}</p>
+                        </div>
+                    </label>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+    {% endif %}
 
 </main>
 
@@ -168,29 +200,34 @@
         }
     });
 
-    // Analyze Assignment functionality
+    // Generate Tasks functionality
     const analyzeBtn = document.getElementById("analyzeBtn");
-    const assignmentDescription = document.getElementById("assignmentDescription");
     const analysisResult = document.getElementById("analysisResult");
 
     analyzeBtn.addEventListener("click", async () => {
-        const description = assignmentDescription.value.trim();
+        const projectName = document.getElementById("projectName").value.trim();
+        const projectUrl = document.getElementById("projectUrl").value.trim();
+        const description = document.getElementById("assignmentDescription").value.trim();
 
-        if (!description) {
-            alert("Please enter an assignment description");
+        // Build prompt from all fields
+        let prompt = "";
+        if (projectName) prompt += "Project: " + projectName + "\n";
+        if (projectUrl) prompt += "URL: " + projectUrl + "\n";
+        if (description) prompt += "Description: " + description;
+
+        if (!prompt.trim()) {
+            alert("Please fill in at least a project name or description");
             return;
         }
 
         analyzeBtn.disabled = true;
-        analyzeBtn.textContent = "Analyzing...";
+        analyzeBtn.textContent = "Generating...";
 
         try {
             const response = await fetch("/analyze-assignment", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ description: description })
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ description: prompt })
             });
 
             if (response.ok) {
@@ -198,26 +235,42 @@
                 analysisResult.classList.remove("hidden");
                 analysisResult.innerHTML = `
                     <div class="bg-green-50 border border-green-200 rounded-lg p-4">
-                        <p class="text-green-700 font-semibold">✓ Assignment analyzed and saved successfully!</p>
-                        <p class="text-sm text-gray-600 mt-2">Assignment: ${data.name}</p>
+                        <p class="text-green-700 font-semibold">✓ "${data.name}" added successfully!</p>
+                        <p class="text-sm text-gray-600 mt-1">Generated ${data.tasks.length} tasks · Effort: ${data.effort}/10</p>
                     </div>
                 `;
-                assignmentDescription.value = "";
+                // Reload after short delay so new assignment appears
+                setTimeout(() => window.location.reload(), 1500);
             } else {
-                throw new Error("Failed to analyze assignment");
+                throw new Error("Failed");
             }
         } catch (error) {
             analysisResult.classList.remove("hidden");
             analysisResult.innerHTML = `
                 <div class="bg-red-50 border border-red-200 rounded-lg p-4">
-                    <p class="text-red-700">Error analyzing assignment. Please try again.</p>
+                    <p class="text-red-700">Error generating tasks. Please try again.</p>
                 </div>
             `;
-        } finally {
             analyzeBtn.disabled = false;
-            analyzeBtn.textContent = "🤖 Analyze Assignment";
+            analyzeBtn.textContent = "🤖 Generate Tasks";
         }
     });
+
+    function onChangeAssignment() {
+            const optionData = document.getElementById("assignments")
+            console.log(optionData.value)
+            
+            const assignment_tasks = document.getElementsByClassName("assignment_tasks")
+
+            for(assignment_task of assignment_tasks) {
+                if (assignment_task.id != optionData.value) {
+                    assignment_task.classList.add("hidden")
+                } else {
+                    assignment_task.classList.remove("hidden")
+                }
+            }
+        }
+    
 </script>
 
 </body>
